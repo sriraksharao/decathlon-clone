@@ -23,6 +23,9 @@ const DecathlonHeader = () => {
   return (
     <>
       {/* Top Banner */}
+      {/* <Link to="\deals" className="bg-primary text-primary-foreground py-2 text-center text-sm font-medium">
+        Labor Day Sale - Up to 40% Off →
+      </Link> */}
       <div className="bg-primary text-primary-foreground py-2 text-center text-sm font-medium">
         Labor Day Sale - Up to 40% Off →
       </div>
@@ -96,10 +99,10 @@ const DecathlonHeader = () => {
                 <Bike className="h-4 w-4" />
                 <span>Cycling</span>
               </Link>
-              {/* <Link to="/deals" className="flex items-center space-x-2 text-sm font-medium whitespace-nowrap hover:text-primary transition-colors">
+              <Link to="/deals" className="flex items-center space-x-2 text-sm font-medium whitespace-nowrap hover:text-primary transition-colors">
                 <Tag className="h-4 w-4" />
                 <span>Deals</span>
-              </Link> */}
+              </Link>
             </nav>
           </div>
         </div>

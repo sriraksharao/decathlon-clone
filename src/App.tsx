@@ -18,6 +18,8 @@ import AllProducts from "./pages/AllProducts";
 import Men from "./pages/Men";
 import Women from "./pages/Women";
 import Unisex from "./pages/Unisex";
+import Deals from "./pages/Deals";
+import { DefaultSerializer } from "v8";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,7 @@ export default function App(){
               <Route path="/cycling" element={<Cycling />} />
               <Route path="/running" element={<Running />} />
               <Route path="/all-products" element={<AllProducts />} />
+              <Route path="/deals" element={<Deals />} />
               <Route path="*" element={<NotFound />} />
 
             </Routes>
