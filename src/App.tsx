@@ -15,6 +15,10 @@ import Camping from "./pages/Camping";
 import Cycling from "./pages/Cycling";
 import Running from "./pages/Running";
 import AllProducts from "./pages/AllProducts";
+import Men from "./pages/Men";
+import Women from "./pages/Women";
+import Unisex from "./pages/Unisex";
+
 const queryClient = new QueryClient();
 
 export default function App(){
@@ -30,6 +34,9 @@ export default function App(){
               <Route path="/" element={<Index />} />
               <Route path="/new-arrivals" element={<NewArrivals />} />
               <Route path="/cart" element={<CartPage></CartPage>}></Route>
+              <Route path="/men" element={<Men />} />
+              <Route path="/women" element={<Women />} />
+              <Route path="/unisex" element={<Unisex />} />
               <Route path="/hiking-backpacking" element={<Hiking />} />
               <Route path="/camping" element={<Camping />} />
               <Route path="/cycling" element={<Cycling />} />

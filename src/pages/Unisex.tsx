@@ -2,8 +2,8 @@ import React from "react";
 import { useCart } from "../context/CartContext";
 import productsData from "../assets/mockData.json";
 
-const Men = () => {
-  const products = productsData.filter((product) => product.gender === "M");
+const Unisex = () => {
+  const products = productsData.filter((product) => product.gender === "U");
   const { addToCart, decreaseQuantity, cart } = useCart();
 
   const getItemCount = (productId) => {
@@ -15,7 +15,7 @@ const Men = () => {
     <section className="py-16 bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-gray-800 uppercase tracking-wide">
-          Men’s Collection
+          Unisex Collection
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -76,4 +76,4 @@ const Men = () => {
   );
 };
 
-export default Men;
+export default Unisex;

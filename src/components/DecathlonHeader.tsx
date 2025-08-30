@@ -34,9 +34,10 @@ const DecathlonHeader = () => {
             
             {/* Left Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">Sports</a>
-              <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">Men</a>
-              <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">Women</a>
+              <a href="/Sports" className="text-foreground hover:text-primary transition-colors font-medium">Sports</a>
+              <a href="/Men" className="text-foreground hover:text-primary transition-colors font-medium">Men</a>
+              <a href="/Women" className="text-foreground hover:text-primary transition-colors font-medium">Women</a>
+              <a href="/Unisex" className="text-foreground hover:text-primary transition-colors font-medium">Unisex</a>
             </nav>
 
             {/* Logo */}
