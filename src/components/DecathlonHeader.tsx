@@ -24,12 +24,15 @@ const DecathlonHeader = () => {
   return (
     <>
       {/* Top Banner */}
-      {/* <Link to="\deals" className="bg-primary text-primary-foreground py-2 text-center text-sm font-medium">
+      <Link
+  to="/deals"
+  className="bg-primary text-primary-foreground py-2 text-center text-sm font-medium block"
+>
+  Labor Day Sale - Up to 40% Off →
+</Link>
+      {/* <div className="bg-primary text-primary-foreground py-2 text-center text-sm font-medium">
         Labor Day Sale - Up to 40% Off →
-      </Link> */}
-      <div className="bg-primary text-primary-foreground py-2 text-center text-sm font-medium">
-        Labor Day Sale - Up to 40% Off →
-      </div>
+      </div> */}
 
       {/* Main Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
