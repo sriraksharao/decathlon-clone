@@ -11,7 +11,7 @@ const heroItems = [
       "The best of the outdoors is now up to 40% off. Shop backpacks, apparel, and more. Our high-performance gear is ready for your next adventure.",
     button: "Shop the Sale",
     icon: Tent,
-    href: "/sale",
+    href: "/deals",
     image:
       "https://media.istockphoto.com/id/627761528/photo/young-couple-doing-their-stretches-in-the-park.jpg?s=612x612&w=0&k=20&c=uK0rFKLOeBPNFuF1CO26QV9POE9nIG9FRlgYfytcZHo=",
   },

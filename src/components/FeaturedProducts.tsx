@@ -1,80 +1,31 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
-import { Star, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
+import { useCart } from "../context/CartContext";
+import productsData from "../assets/mockData.json";
+
+// IDs of products to display as Featured
+const FEATURED_IDS = [3,4,13, 6, 7, 8];
 
 const FeaturedProducts = () => {
-  const products = [
-    {
-      id: 1,
-      name: "Men's Hiking Backpack",
-      category: "Hiking & Backpacking",
-      price: 329.99,
-      originalPrice: 399.99,
-      rating: 4.5,
-      reviews: 120,
-      badge: "Best Seller",
-      sizes: ["M", "L"],
-      color: "Forest Green",
-      inStock: true,
-      image:
-        "https://www.decathlon.com/cdn/shop/files/8642599-product_image-p2687928.jpg?v=1714475928&width=990",
-    },
-    {
-      id: 4,
-      name: "Sleeping Bag",
-      category: "Camping",
-      price: 49.99,
-      originalPrice: 79.99,
-      rating: 4.2,
-      reviews: 85,
-      badge: "Sale",
-      sizes: ["Regular"],
-      color: "Blue",
-      inStock: true,
-      image:
-        "https://www.decathlon.com/cdn/shop/files/8800273-product_image-p2455218.jpg?v=1715853839&width=990",
-    },
-    {
-      id: 7,
-      name: "Women's Cycling Jacket",
-      category: "Cycling",
-      price: 1099.99,
-      originalPrice: 1299.99,
-      rating: 4.8,
-      reviews: 230,
-      badge: "New",
-      sizes: ["S", "M", "L", "XL"],
-      color: "Red",
-      inStock: true,
-      image:
-        "https://www.decathlon.com/cdn/shop/files/8381000-product_image-p2647450.jpg?v=1744656549&width=990",
-    },
-    {
-      id: 8,
-      name: "Cycling Helmet",
-      category: "Cycling",
-      price: 129.99,
-      originalPrice: 159.99,
-      rating: 4.7,
-      reviews: 340,
-      badge: "Best Seller",
-      sizes: ["S", "M", "L"],
-      color: "Matte Black",
-      inStock: true,
-      image:
-        "https://contents.mediadecathlon.com/p2988747/k$3d49a77042976a9c427c66379d20ee87/picture.jpg?format=auto&f=969x0",
-    },
-  ];
+  const products = productsData.filter((product) =>
+    FEATURED_IDS.includes(product.id)
+  );
+  const { addToCart, decreaseQuantity, cart } = useCart();
+
+  const getItemCount = (productId: number) => {
+    const item = cart.items.find((i) => i.product.id === productId);
+    return item ? item.quantity : 0;
+  };
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
-      <Star
+      <span
         key={i}
-        className={`w-4 h-4 ${
-          i < Math.floor(rating)
-            ? "fill-primary text-primary"
-            : "fill-muted text-muted"
-        }`}
-      />
+        className={i < Math.floor(rating) ? "text-yellow-500" : "text-gray-300"}
+      >
+        ★
+      </span>
     ));
   };
 
@@ -84,7 +35,7 @@ const FeaturedProducts = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-12">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Most Popular</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Featured Products</h2>
             <p className="text-xl text-muted-foreground">
               Most trusted by outdoor enthusiasts
             </p>
@@ -96,80 +47,100 @@ const FeaturedProducts = () => {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
-            >
-              {/* Image */}
-              <div className="relative aspect-square bg-muted/30">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="object-cover w-full h-full"
-                />
+          {products.map((product) => {
+            const quantity = getItemCount(product.id);
+            return (
+              <div
+                key={product.id}
+                className="group bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                {/* Image */}
+                <div className="relative aspect-square bg-muted/30">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="object-cover w-full h-full"
+                  />
 
-                {/* Badge */}
-                {product.badge && (
-                  <div
-                    className={`absolute top-3 left-3 px-2 py-1 text-xs font-semibold rounded-full ${
-                      product.badge === "Sale"
-                        ? "bg-destructive text-destructive-foreground"
-                        : product.badge === "New"
-                        ? "bg-primary text-primary-foreground"
-                        : product.badge === "Best Seller"
-                        ? "bg-secondary text-secondary-foreground"
-                        : "bg-accent text-accent-foreground"
-                    }`}
-                  >
-                    {product.badge}
-                  </div>
-                )}
+                  {/* Badge */}
+                  {product.badge && (
+                    <div
+                      className={`absolute top-3 left-3 px-2 py-1 text-xs font-semibold rounded-full ${
+                        product.badge === "Sale"
+                          ? "bg-destructive text-destructive-foreground"
+                          : product.badge === "New"
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-secondary text-secondary-foreground"
+                      }`}
+                    >
+                      {product.badge}
+                    </div>
+                  )}
 
-                {/* Favorite Button */}
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-white/80 hover:bg-white"
-                >
-                  <Heart className="h-4 w-4" />
-                </Button>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
-                  {product.name}
-                </h3>
-
-                {/* Rating */}
-                <div className="flex items-center mb-3">
-                  <div className="flex mr-2">{renderStars(product.rating)}</div>
-                  <span className="text-sm text-muted-foreground">
-                    {product.rating} ({product.reviews})
-                  </span>
-                </div>
-
-                {/* Price */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-2xl font-bold">${product.price}</span>
-                    {product.originalPrice && (
-                      <span className="text-lg text-muted-foreground line-through">
-                        ${product.originalPrice}
-                      </span>
-                    )}
-                  </div>
+                  {/* Favorite Button */}
                   <Button
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 transition-opacity"
+                    size="icon"
+                    variant="ghost"
+                    className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-white/80 hover:bg-white"
                   >
-                    Add to Cart
+                    <Heart className="h-4 w-4" />
                   </Button>
                 </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                    {product.name}
+                  </h3>
+
+                  {/* Rating */}
+                  <div className="flex items-center mb-3">
+                    <div className="flex mr-2">{renderStars(product.rating)}</div>
+                    <span className="text-sm text-muted-foreground">
+                      {product.rating} ({product.reviews || 0})
+                    </span>
+                  </div>
+
+                  {/* Price */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-2xl font-bold">${product.price}</span>
+                      {product.originalPrice && (
+                        <span className="text-lg text-muted-foreground line-through">
+                          ${product.originalPrice}
+                        </span>
+                      )}
+                    </div>
+                    {quantity > 0 ? (
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => decreaseQuantity(product)}
+                          className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition"
+                        >
+                          -
+                        </button>
+                        <span className="font-medium">{quantity}</span>
+                        <button
+                          onClick={() => addToCart(product, 1)}
+                          className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition"
+                        >
+                          +
+                        </button>
+                      </div>
+                    ) : (
+                      <Button
+                        size="sm"
+                        className="opacity-100 transition-opacity"
+                        onClick={() => addToCart(product, 1)}
+                      >
+                        Add to Cart
+                      </Button>
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Mobile CTA */}

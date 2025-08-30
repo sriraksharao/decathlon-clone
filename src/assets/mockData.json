@@ -10,6 +10,7 @@
     "gender": "M",
     "color": "Forest Green",
     "inStock": true,
+    "rating": 4.5,
     "image": "https://www.decathlon.com/cdn/shop/files/8642599-product_image-p2687928.jpg?v=1714475928&width=990"
   },
   {
@@ -22,6 +23,7 @@
     "gender": "U",
     "color": "Graphite",
     "inStock": true,
+    "rating": 4.3,
     "image": "https://www.decathlon.com/cdn/shop/files/8493796-product_image-p2675317.jpg?v=1714561480&width=533"
   },
   {
@@ -75,7 +77,7 @@
     "gender": "U",
     "color": "Blue",
     "inStock": true,
-    "rating": 4.0,
+    "rating": 4.2,
     "image": "https://www.decathlon.com/cdn/shop/files/8800273-product_image-p2455218.jpg?v=1715853839&width=990"
   },
   {
@@ -117,7 +119,7 @@
     "color": "Black/White",
     "inStock": true,
     "rating": 4.7,
-    "image": "//www.decathlon.com/cdn/shop/files/8618759-product_image-p2315780_2a5b96b2-f26e-4ba1-8391-68142d88902c.jpg?v=1742379051&width=1946"
+    "image": "https://www.decathlon.com/cdn/shop/files/8618759-product_image-p2315780_2a5b96b2-f26e-4ba1-8391-68142d88902c.jpg?v=1742379051&width=1946"
   },
   {
     "id": 6,

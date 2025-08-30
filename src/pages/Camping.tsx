@@ -1,35 +1,31 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
-
-const products = [
-  {
-    id: 3,
-    name: "Foldable Camping Chair",
-    category: "Camping",
-    price: 329.0,
-    sizes: ["2-person"],
-    color: "Orange",
-    inStock: true,
-    image: "https://contents.mediadecathlon.com/p2598175/k$ef0cd18cf948c705e900c9cf2e92dc64/picture.jpg?format=auto&f=640x0",
-  },
-  {
-    id: 4,
-    name: "Sleeping Bag",
-    category: "Camping",
-    price: 49.99,
-    sizes: ["Regular"],
-    color: "Blue",
-    inStock: true,
-    image: "https://www.decathlon.com/cdn/shop/files/8800273-product_image-p2455218.jpg?v=1715853839&width=990",
-  },
-];
+import mockData from "../assets/mockData.json";
 
 const Camping = () => {
   const { addToCart, decreaseQuantity, cart } = useCart();
 
+  const campingProducts = mockData.filter(
+    (product) => product.category === "Camping"
+  );
+
   const getItemCount = (productId: number) => {
     const item = cart.items.find((i) => i.product.id === productId);
     return item ? item.quantity : 0;
+  };
+
+  const renderStars = (rating: number) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= Math.floor(rating)) {
+        stars.push(<span key={i} className="text-yellow-500">★</span>);
+      } else if (i - rating < 1) {
+        stars.push(<span key={i} className="text-yellow-500">☆</span>);
+      } else {
+        stars.push(<span key={i} className="text-gray-300">★</span>);
+      }
+    }
+    return stars;
   };
 
   return (
@@ -38,28 +34,33 @@ const Camping = () => {
         <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-gray-800 uppercase tracking-wide">
           Camping
         </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product) => {
+          {campingProducts.map((product) => {
             const quantity = getItemCount(product.id);
+
             return (
               <div
                 key={product.id}
                 className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-300 flex flex-col justify-between"
               >
                 <img
-                  src={product.image}
+                  src={product.image.startsWith("//") ? "https:" + product.image : product.image}
                   alt={product.name}
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
-                <h3 className="font-bold text-lg mb-1 line-clamp-1">
-                  {product.name}
-                </h3>
-                <p className="text-sm text-gray-500 line-clamp-2">
-                  {product.category}
-                </p>
+                <h3 className="font-bold text-lg mb-1 line-clamp-1">{product.name}</h3>
+                <p className="text-sm text-gray-500 line-clamp-2">{product.category}</p>
+
+                <div className="mt-1 flex items-center gap-1">
+                  {renderStars(product.rating)}
+                  <span className="text-sm text-gray-600 font-medium">{product.rating.toFixed(1)}</span>
+                </div>
+
                 <p className="text-primary font-semibold mt-2">
                   ${(product.price).toLocaleString()}
                 </p>
+
                 {quantity > 0 ? (
                   <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center gap-2">

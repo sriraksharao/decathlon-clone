@@ -37,7 +37,7 @@ const Unisex = () => {
                 </h3>
                 <p className="text-sm text-gray-500 line-clamp-1">{product.category}</p>
                 <p className="text-primary font-semibold mt-2">
-                  ₹{(product.price).toLocaleString()}
+                  ${(product.price).toLocaleString()}
                 </p>
                 <p className="text-xs text-gray-400 mt-1">Rating: {product.rating}</p>
                 {quantity > 0 ? (

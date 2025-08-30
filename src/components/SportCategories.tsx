@@ -7,25 +7,31 @@ const SportCategories = () => {
     {
       name: "Hiking & Backpacking",
       image:
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80",
+        // "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs7zKgbvH1COxozKctL47ztWpUqZ_gTbMWsg&s",
       description: "Explore trails with confidence",
     },
     {
       name: "Camping",
       image:
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+        // "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8VJJJWsAerlfV7u3-LxXX15ilBh4JRlb2ig&s",
       description: "Gear for outdoor adventures",
     },
     {
       name: "Running",
       image:
-        "https://images.pexels.com/photos/1199590/pexels-photo-1199590.jpeg?auto=compress&cs=tinysrgb&w=600",
+        // "https://images.pexels.com/photos/1199590/pexels-photo-1199590.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShxa-6xaChOIvSMYSC03RDKYucp6uc3MyclQ&s",
       description: "Performance for every mile",
     },
     {
       name: "Cycling",
       image:
-        "https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=600&q=80",
+        // "https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=600&q=80",
+        // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd4UUdCIBnC_DiVJ7lXvFbuG0lZQuxDsa6og&s",
+        // "https://marmot-tours.co.uk/wp-content/uploads/2024/03/Cime-de-la-bonette-cycling-climb-marmot-tours-001-1.jpg",
+        "https://plus.unsplash.com/premium_photo-1713184149461-69b0abeb3daa?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y3ljbGluZ3xlbnwwfHwwfHx8MA%3D%3D",
       description: "Ride with passion",
     },
     // {

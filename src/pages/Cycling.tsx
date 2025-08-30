@@ -1,37 +1,32 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
-
-const products = [
-  {
-    id: 7,
-    name: "Women's Cycling Jacket",
-    category: "Cycling",
-    price: 1099.99,
-    sizes: ["52cm", "54cm", "56cm", "58cm"],
-    color: "Red",
-    inStock: true,
-    rating: 4.6,
-    image: "https://www.decathlon.com/cdn/shop/files/8381000-product_image-p2647450.jpg?v=1744656549&width=990"
-  },
-  {
-    id: 8,
-    name: "Cycling Helmet",
-    category: "Cycling",
-    price: 129.99,
-    sizes: ["S", "M", "L"],
-    color: "Matte Black",
-    inStock: true,
-    rating: 4.4,
-    image: "https://contents.mediadecathlon.com/p2988747/k$3d49a77042976a9c427c66379d20ee87/picture.jpg?format=auto&f=969x0"
-  }
-];
+import mockData from "../assets/mockData.json"; // import your JSON file
 
 const Cycling = () => {
   const { addToCart, decreaseQuantity, cart } = useCart();
 
+  // Filter products for Cycling category
+  const products = mockData.filter(
+    (product) => product.category === "Cycling"
+  );
+
   const getItemCount = (productId: number) => {
     const item = cart.items.find((i) => i.product.id === productId);
     return item ? item.quantity : 0;
+  };
+
+  const renderStars = (rating: number) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= Math.floor(rating)) {
+        stars.push(<span key={i} className="text-yellow-500">★</span>);
+      } else if (i - rating < 1) {
+        stars.push(<span key={i} className="text-yellow-500">☆</span>);
+      } else {
+        stars.push(<span key={i} className="text-gray-300">★</span>);
+      }
+    }
+    return stars;
   };
 
   return (
@@ -40,29 +35,32 @@ const Cycling = () => {
         <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-gray-800 uppercase tracking-wide">
           Cycling
         </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product) => {
             const quantity = getItemCount(product.id);
+
             return (
               <div
                 key={product.id}
                 className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-300 flex flex-col justify-between"
               >
                 <img
-                  src={product.image}
+                  src={product.image.startsWith("//") ? "https:" + product.image : product.image}
                   alt={product.name}
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
-                <h3 className="font-bold text-lg mb-1 line-clamp-1">
-                  {product.name}
-                </h3>
-                <p className="text-sm text-gray-500 line-clamp-2">
-                  {product.category}
-                </p>
-                <p className="text-primary font-semibold mt-2">
-                  ₹{(product.price).toLocaleString()}
-                </p>
-                <p className="text-xs text-gray-400 mt-1">Rating: {product.rating}</p>
+                <h3 className="font-bold text-lg mb-1 line-clamp-1">{product.name}</h3>
+                <p className="text-sm text-gray-500 line-clamp-2">{product.category}</p>
+
+                {/* Rating stars with numeric value */}
+                <div className="mt-1 flex items-center gap-1">
+                  {renderStars(product.rating)}
+                  <span className="text-sm text-gray-600 font-medium">{product.rating.toFixed(1)}</span>
+                </div>
+
+                <p className="text-primary font-semibold mt-2">${product.price.toLocaleString()}</p>
+
                 {quantity > 0 ? (
                   <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center gap-2">

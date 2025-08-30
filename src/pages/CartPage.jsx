@@ -91,11 +91,11 @@ const CartPage = () => {
           <h3 className="text-xl font-bold mb-4">Payment Summary</h3>
           <div className="flex justify-between mb-2">
             <span>Subtotal:</span>
-            <span>₹{totalPrice.toLocaleString()}</span>
+            <span>${totalPrice.toLocaleString()}</span>
           </div>
           <div className="flex justify-between mb-4">
             <span>Shipping:</span>
-            <span>₹199</span>
+            <span>$199</span>
           </div>
           <div className="flex justify-between font-bold text-lg border-t pt-2">
             <span>Total:</span>
