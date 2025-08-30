@@ -12,6 +12,7 @@ import {
   BaggageClaim,
   BaggageClaimIcon
 } from "lucide-react";
+import HeaderNav from "../pages/Sports";
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -37,7 +38,8 @@ const DecathlonHeader = () => {
             
             {/* Left Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="/Sports" className="text-foreground hover:text-primary transition-colors font-medium">Sports</a>
+              <HeaderNav />
+              {/* <a href="/Sports" className="text-foreground hover:text-primary transition-colors font-medium">Sports</a> */}
               <a href="/Men" className="text-foreground hover:text-primary transition-colors font-medium">Men</a>
               <a href="/Women" className="text-foreground hover:text-primary transition-colors font-medium">Women</a>
               <a href="/Unisex" className="text-foreground hover:text-primary transition-colors font-medium">Unisex</a>
