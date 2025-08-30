@@ -1,0 +1,88 @@
+[
+  {
+    "id": 1,
+    "name": "Men's Hiking Backpack",
+    "category": "Hiking & Backpacking",
+    "price": 329.99,
+    "sizes": ["M", "L"],
+    "color": "Forest Green",
+    "inStock": true,
+    "image": "https://www.decathlon.com/cdn/shop/files/8642599-product_image-p2687928.jpg?v=1714475928&width=990"
+  },
+  {
+    "id": 2,
+    "name": "Trekking Poles",
+    "category": "Hiking & Backpacking",
+    "price": 139.95,
+    "sizes": ["One Size"],
+    "color": "Graphite",
+    "inStock": true,
+    "image": "https://www.decathlon.com/cdn/shop/files/8493796-product_image-p2675317.jpg?v=1714561480&width=533"
+  },
+  {
+    "id": 3,
+    "name": "Foldable Camping Chair",
+    "category": "Camping",
+    "price": 329.00,
+    "sizes": ["2-person"],
+    "color": "Orange",
+    "inStock": true,
+    "rating": 4.5,
+    "image": "https://contents.mediadecathlon.com/p2598175/k$ef0cd18cf948c705e900c9cf2e92dc64/picture.jpg?format=auto&f=640x0"
+  },
+  {
+    "id": 4,
+    "name": "Sleeping Bag",
+    "category": "Camping",
+    "price": 49.99,
+    "sizes": ["Regular"],
+    "color": "Blue",
+    "inStock": true,
+    "rating": 4.0,
+    "image": "https://www.decathlon.com/cdn/shop/files/8800273-product_image-p2455218.jpg?v=1715853839&width=990"
+  },
+  {
+    "id": 5,
+    "name": "Men's Running Shoes",
+    "category": "Running",
+    "price": 129.99,
+    "sizes": ["7", "8", "9", "10", "11", "12"],
+    "color": "Black/White",
+    "inStock": true,
+    "rating": 4.7,
+    "image": "//www.decathlon.com/cdn/shop/files/8618759-product_image-p2315780_2a5b96b2-f26e-4ba1-8391-68142d88902c.jpg?v=1742379051&width=1946"
+  },
+  {
+    "id": 6,
+    "name": "Women's Running Shoes",
+    "category": "Running",
+    "price": 189.99,
+    "sizes": ["7", "8", "9", "10", "11"],
+    "color": "Grey/Orange",
+    "inStock": true,
+    "rating": 4.8,
+    "image": "https://www.decathlon.com/cdn/shop/files/8641388-product_image-p2579147.jpg?v=1740180565&width=990"
+  },
+  {
+    "id": 7,
+    "name": "Women's Cycling Jacket",
+    "category": "Cycling",
+    "price": 1099.99,
+    "sizes": ["52cm", "54cm", "56cm", "58cm"],
+    "color": "Red",
+    "inStock": true,
+    "rating": 4.6,
+    "image": "https://www.decathlon.com/cdn/shop/files/8381000-product_image-p2647450.jpg?v=1744656549&width=990"
+  },
+  {
+    "id": 8,
+    "name": "Cycling Helmet",
+    "category": "Cycling",
+    "price": 129.99,
+    "sizes": ["S", "M", "L"],
+    "color": "Matte Black",
+    "inStock": true,
+    "rating": 4.4,
+    "image": "https://contents.mediadecathlon.com/p2988747/k$3d49a77042976a9c427c66379d20ee87/picture.jpg?format=auto&f=969x0"
+  }
+]

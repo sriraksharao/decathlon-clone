@@ -1,0 +1,45 @@
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import NewArrivals from "./pages/NewArrivals";
+import DecathlonHeader from "./components/DecathlonHeader";
+import { useState } from "react";
+import { CartProvider } from "@/context/CartContext";
+import CartPage from "./pages/CartPage";
+import Hiking from "./pages/Hiking";
+import Camping from "./pages/Camping";
+import Cycling from "./pages/Cycling";
+import Running from "./pages/Running";
+const queryClient = new QueryClient();
+
+export default function App(){
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <CartProvider>
+          <BrowserRouter>
+            <DecathlonHeader />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/new-arrivals" element={<NewArrivals />} />
+              <Route path="/cart" element={<CartPage></CartPage>}></Route>
+              <Route path="/hiking-backpacking" element={<Hiking />} />
+              <Route path="/camping" element={<Camping />} />
+              <Route path="/cycling" element={<Cycling />} />
+              <Route path="/running" element={<Running />} />
+              <Route path="/all-products" element={<AllProducts />} />
+              <Route path="*" element={<NotFound />} />
+
+            </Routes>
+          </BrowserRouter>
+        </CartProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
