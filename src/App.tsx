@@ -14,6 +14,7 @@ import Hiking from "./pages/Hiking";
 import Camping from "./pages/Camping";
 import Cycling from "./pages/Cycling";
 import Running from "./pages/Running";
+import AllProducts from "./pages/AllProducts";
 const queryClient = new QueryClient();
 
 export default function App(){

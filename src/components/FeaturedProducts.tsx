@@ -4,45 +4,65 @@ import { Star, Heart } from "lucide-react";
 const FeaturedProducts = () => {
   const products = [
     {
-    "id": 1,
-    "name": "Men's Hiking Backpack",
-    "category": "Hiking & Backpacking",
-    "price": 329.99,
-    "sizes": ["M", "L"],
-    "color": "Forest Green",
-    "inStock": true,
-    "image": "https://www.decathlon.com/cdn/shop/files/8642599-product_image-p2687928.jpg?v=1714475928&width=990"
-  },
-     {
-    "id": 4,
-    "name": "Sleeping Bag",
-    "category": "Camping",
-    "price": 49.99,
-    "sizes": ["Regular"],
-    "color": "Blue",
-    "inStock": true,
-    "image": "https://www.decathlon.com/cdn/shop/files/8800273-product_image-p2455218.jpg?v=1715853839&width=990"
-  },
-     {
-    "id": 7,
-    "name": "Women's Cycling Jacket",
-    "category": "Cycling",
-    "price": 1099.99,
-    "sizes": ["52cm", "54cm", "56cm", "58cm"],
-    "color": "Red",
-    "inStock": true,
-    "image": "https://www.decathlon.com/cdn/shop/files/8381000-product_image-p2647450.jpg?v=1744656549&width=990"
-  },
-     {
-    "id": 8,
-    "name": "Cycling Helmet",
-    "category": "Cycling",
-    "price": 129.99,
-    "sizes": ["S", "M", "L"],
-    "color": "Matte Black",
-    "inStock": true,
-    "image": "https://contents.mediadecathlon.com/p2988747/k$3d49a77042976a9c427c66379d20ee87/picture.jpg?format=auto&f=969x0"
-  }
+      id: 1,
+      name: "Men's Hiking Backpack",
+      category: "Hiking & Backpacking",
+      price: 329.99,
+      originalPrice: 399.99,
+      rating: 4.5,
+      reviews: 120,
+      badge: "Best Seller",
+      sizes: ["M", "L"],
+      color: "Forest Green",
+      inStock: true,
+      image:
+        "https://www.decathlon.com/cdn/shop/files/8642599-product_image-p2687928.jpg?v=1714475928&width=990",
+    },
+    {
+      id: 4,
+      name: "Sleeping Bag",
+      category: "Camping",
+      price: 49.99,
+      originalPrice: 79.99,
+      rating: 4.2,
+      reviews: 85,
+      badge: "Sale",
+      sizes: ["Regular"],
+      color: "Blue",
+      inStock: true,
+      image:
+        "https://www.decathlon.com/cdn/shop/files/8800273-product_image-p2455218.jpg?v=1715853839&width=990",
+    },
+    {
+      id: 7,
+      name: "Women's Cycling Jacket",
+      category: "Cycling",
+      price: 1099.99,
+      originalPrice: 1299.99,
+      rating: 4.8,
+      reviews: 230,
+      badge: "New",
+      sizes: ["S", "M", "L", "XL"],
+      color: "Red",
+      inStock: true,
+      image:
+        "https://www.decathlon.com/cdn/shop/files/8381000-product_image-p2647450.jpg?v=1744656549&width=990",
+    },
+    {
+      id: 8,
+      name: "Cycling Helmet",
+      category: "Cycling",
+      price: 129.99,
+      originalPrice: 159.99,
+      rating: 4.7,
+      reviews: 340,
+      badge: "Best Seller",
+      sizes: ["S", "M", "L"],
+      color: "Matte Black",
+      inStock: true,
+      image:
+        "https://contents.mediadecathlon.com/p2988747/k$3d49a77042976a9c427c66379d20ee87/picture.jpg?format=auto&f=969x0",
+    },
   ];
 
   const renderStars = (rating: number) => {
@@ -61,6 +81,7 @@ const FeaturedProducts = () => {
   return (
     <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="flex justify-between items-center mb-12">
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Most Popular</h2>
@@ -73,13 +94,14 @@ const FeaturedProducts = () => {
           </Button>
         </div>
 
+        {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <div
               key={product.id}
               className="group bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
             >
-              {/* Image Container */}
+              {/* Image */}
               <div className="relative aspect-square bg-muted/30">
                 <img
                   src={product.image}
@@ -150,6 +172,7 @@ const FeaturedProducts = () => {
           ))}
         </div>
 
+        {/* Mobile CTA */}
         <div className="text-center mt-8 sm:hidden">
           <Button variant="outline">VIEW ALL</Button>
         </div>

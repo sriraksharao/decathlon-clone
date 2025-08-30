@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { useCart } from "../context/CartContext";
 import productsData from "../assets/mockData.json";
+
+// Only show these product IDs for New Arrivals
+const NEW_ARRIVAL_IDS = [3, 5, 7, 8];
+
 const NewArrivals = () => {
-  const [products] = useState(productsData); 
+  const products = productsData.filter((product) => NEW_ARRIVAL_IDS.includes(product.id));
   const { addToCart, decreaseQuantity, cart } = useCart();
 
   const getItemCount = (productId) => {
@@ -14,7 +18,7 @@ const NewArrivals = () => {
     <section className="py-16 bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-gray-800 uppercase tracking-wide">
-          All Products
+          New Arrivals
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -27,7 +31,7 @@ const NewArrivals = () => {
                 className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-300 flex flex-col justify-between"
               >
                 <img
-                  src={product.image} // ✅ use "image" from dataset
+                  src={product.image}
                   alt={product.name}
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
@@ -35,13 +39,12 @@ const NewArrivals = () => {
                   {product.name}
                 </h3>
                 <p className="text-sm text-gray-500 line-clamp-1">
-                  {product.brand} • {product.category}
+                  {product.category}
                 </p>
                 <p className="text-primary font-semibold mt-2">
-                  ${(product.price).toLocaleString()}
+                  ₹{(product.price).toLocaleString()}
                 </p>
-
-                {/* Quantity Controls */}
+                <p className="text-xs text-gray-400 mt-1">Rating: {product.rating}</p>
                 {quantity > 0 ? (
                   <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center gap-2">

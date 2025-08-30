@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import productsData from "../assets/mockData.json";
-const NewArrivals = () => {
+const AllProducts = () => {
   const [products] = useState(productsData); 
   const { addToCart, decreaseQuantity, cart } = useCart();
 
