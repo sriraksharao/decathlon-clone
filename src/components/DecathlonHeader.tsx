@@ -80,6 +80,10 @@ const DecathlonHeader = () => {
         <div className="border-t">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center space-x-8 py-3 overflow-x-auto">
+              <Link to="/deals" className="flex items-center space-x-2 text-sm font-medium whitespace-nowrap hover:text-primary transition-colors">
+                <Tag className="h-4 w-4" />
+                <span>Deals</span>
+              </Link>
               <Link to="/new-arrivals" className="flex items-center space-x-2 text-sm font-medium whitespace-nowrap hover:text-primary transition-colors">
                 <Sparkles className="h-4 w-4" />
                 <span>New Arrivals</span>
@@ -104,10 +108,10 @@ const DecathlonHeader = () => {
                 <Bike className="h-4 w-4" />
                 <span>Cycling</span>
               </Link>
-              <Link to="/deals" className="flex items-center space-x-2 text-sm font-medium whitespace-nowrap hover:text-primary transition-colors">
+              {/* <Link to="/deals" className="flex items-center space-x-2 text-sm font-medium whitespace-nowrap hover:text-primary transition-colors">
                 <Tag className="h-4 w-4" />
                 <span>Deals</span>
-              </Link>
+              </Link> */}
             </nav>
           </div>
         </div>
