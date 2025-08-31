@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import productsData from "../assets/mockData.json";
+import { Star } from "lucide-react";
+
 const AllProducts = () => {
-  const [products] = useState(productsData); 
+  const [products] = useState(productsData);
   const { addToCart, decreaseQuantity, cart } = useCart();
 
   const getItemCount = (productId) => {
@@ -21,24 +23,76 @@ const AllProducts = () => {
           {products.map((product) => {
             const quantity = getItemCount(product.id);
 
+            // ⭐ rating logic
+            const fullStars = Math.floor(product.rating);
+            const hasHalfStar = product.rating % 1 >= 0.5;
+
             return (
               <div
                 key={product.id}
                 className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-300 flex flex-col justify-between"
               >
+                {/* Product Image */}
                 <img
-                  src={product.image} // ✅ use "image" from dataset
+                  src={product.image}
                   alt={product.name}
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
+
+                {/* Product Name */}
                 <h3 className="font-bold text-lg mb-1 line-clamp-1">
                   {product.name}
                 </h3>
+
+                {/* Brand + Category */}
                 <p className="text-sm text-gray-500 line-clamp-1">
                   {product.brand} • {product.category}
                 </p>
+
+                {/* ⭐ Rating */}
+                <div className="flex items-center mt-2">
+                  {Array.from({ length: 5 }).map((_, index) => {
+                    if (index < fullStars) {
+                      return (
+                        <Star
+                          key={index}
+                          size={16}
+                          className="text-yellow-400 fill-yellow-400"
+                        />
+                      );
+                    } else if (index === fullStars && hasHalfStar) {
+                      return (
+                        <Star
+                          key={index}
+                          size={16}
+                          className="text-yellow-400"
+                          style={{
+                            fill: "url(#half-gradient)",
+                          }}
+                        />
+                      );
+                    }
+                    return <Star key={index} size={16} className="text-gray-300" />;
+                  })}
+
+                  {/* gradient for half-star */}
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient id="half-gradient" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="50%" stopColor="#facc15" />
+                        <stop offset="50%" stopColor="lightgray" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+
+                  <span className="ml-2 text-sm text-gray-500">
+                    {product.rating.toFixed(1)}
+                  </span>
+                </div>
+
+                {/* Price */}
                 <p className="text-primary font-semibold mt-2">
-                  ${(product.price).toLocaleString()}
+                  ${product.price.toLocaleString()}
                 </p>
 
                 {/* Quantity Controls */}

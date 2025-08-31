@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
 import productsData from "../assets/mockData.json";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 const Deals = () => {
   // filter only items on sale
@@ -10,6 +11,25 @@ const Deals = () => {
   const getItemCount = (productId) => {
     const item = cart.items.find((i) => i.product.id === productId);
     return item ? item.quantity : 0;
+  };
+
+  // ⭐ Render stars function
+  const renderStars = (rating) => {
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
+
+    for (let i = 1; i <= 5; i++) {
+      if (i <= fullStars) {
+        stars.push(<FaStar key={i} className="text-yellow-500" />);
+      } else if (i === fullStars + 1 && hasHalfStar) {
+        stars.push(<FaStarHalfAlt key={i} className="text-yellow-500" />);
+      } else {
+        stars.push(<FaRegStar key={i} className="text-yellow-500" />);
+      }
+    }
+
+    return <div className="flex items-center gap-1">{stars}</div>;
   };
 
   return (
@@ -64,9 +84,12 @@ const Deals = () => {
                   </div>
 
                   {/* Rating */}
-                  <p className="text-xs text-gray-400 mt-1">
-                    Rating: {product.rating}
-                  </p>
+                  <div className="mt-2 flex items-center gap-2">
+                    {renderStars(product.rating)}
+                    <span className="text-xs text-gray-500">
+                      ({product.rating})
+                    </span>
+                  </div>
 
                   {/* Cart Controls */}
                   {quantity > 0 ? (
