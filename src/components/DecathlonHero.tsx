@@ -33,7 +33,7 @@ const heroItems = [
       "From running shoes to yoga mats, get everything you need to stay active and energized every day.",
     button: "Shop Essentials",
     icon: Zap,
-    href: "/sports",
+    href: "#sports",
     image:
       "https://images.pexels.com/photos/1552106/pexels-photo-1552106.jpeg?auto=compress&cs=tinysrgb&w=1600",
   },
@@ -84,14 +84,14 @@ const DecathlonHeroCarousel = () => {
               {item.description}
             </p>
 
-            <Link to={item.href}>
+            <a href={item.href}>
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 text-lg rounded-full"
               >
                 {item.button}
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

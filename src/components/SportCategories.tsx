@@ -63,7 +63,7 @@ const SportCategories = () => {
 
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-16 bg-background" id="sports">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-muted-foreground uppercase tracking-wide">
@@ -77,6 +77,7 @@ const SportCategories = () => {
 
             <div
               key={category.name}
+
               className="group rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer border border-border relative overflow-hidden"
             >
               <img

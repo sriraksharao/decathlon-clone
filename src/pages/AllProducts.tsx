@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
-import productsData from "../assets/mockData.json";
+import productsData from "../assets/mockdata.json";
 import { Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AllProducts = () => {
   const [products] = useState(productsData);
@@ -20,7 +21,7 @@ const AllProducts = () => {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product) => {
+          {products.map((product:any) => {
             const quantity = getItemCount(product.id);
 
             // ⭐ rating logic
@@ -33,12 +34,14 @@ const AllProducts = () => {
                 className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Product Image */}
+                                  <Link to={`/product/${product.id}`}>
+                
                 <img
                   src={product.image}
                   alt={product.name}
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
-
+                </Link>
                 {/* Product Name */}
                 <h3 className="font-bold text-lg mb-1 line-clamp-1">
                   {product.name}

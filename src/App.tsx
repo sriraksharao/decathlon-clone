@@ -22,6 +22,7 @@ import Deals from "./pages/Deals";
 import Sports from "./pages/Sports";
 import { DefaultSerializer } from "v8";
 import Footer from "./components/Footer";
+import Product from "./pages/Product";
 
 
 const queryClient = new QueryClient();
@@ -89,6 +90,7 @@ export default function App() {
                   <Route path="/all-products" element={<AllProducts />} />
                   <Route path="/deals" element={<Deals />} />
                   <Route path="*" element={<NotFound />} />
+                  <Route path="/product/:id" element={<Product></Product>}></Route>
                 </Routes>
               </main>
 

@@ -1,0 +1,27 @@
+  // {
+  //   "id": 11,
+  //   "name": "Men's Insulated Camping Jacket",
+  //   "category": "Camping",
+  //   "price": 99.99,
+  //   "discountPrice": 79.99,
+  //   "sale": true,
+  //   "sizes": ["M", "L", "XL"],
+  //   "gender": "M",
+  //   "color": "Navy",
+  //   "inStock": true,
+  //   "rating": 4.5,
+  //   "image": "https://www.decathlon.com/cdn/shop/files/8587639-product_image-p2681287.jpg"
+  // },
+  // {
+  //   "id": 12,
+  //   "name": "Women's Compact Camping Mat",
+  //   "category": "Camping",
+  //   "price": 59.99,
+  //   "sale": false,
+  //   "sizes": ["One Size"],
+  //   "gender": "W",
+  //   "color": "Grey",
+  //   "inStock": true,
+  //   "rating": 4.3,
+  //   "image": "https://www.decathlon.com/cdn/shop/files/8493803-product_image-p2604221.jpg"
+  // },

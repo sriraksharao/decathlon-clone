@@ -2,8 +2,8 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import { useCart } from "../context/CartContext";
-import productsData from "../assets/mockData.json";
-
+import productsData from "@/assets/mockdata.json";
+import { Link } from "react-router-dom";
 // IDs of products to display as Featured
 const FEATURED_IDS = [3,4,13, 6, 7, 8];
 
@@ -47,7 +47,7 @@ const FeaturedProducts = () => {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => {
+          {products.map((product : any) => {
             const quantity = getItemCount(product.id);
             return (
               <div
@@ -56,11 +56,13 @@ const FeaturedProducts = () => {
               >
                 {/* Image */}
                 <div className="relative aspect-square bg-muted/30">
+                  <Link to={`/product/${product.id}`}>
                   <img
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full"
-                  />
+                    />
+                    </Link>
 
                   {/* Badge */}
                   {product.badge && (

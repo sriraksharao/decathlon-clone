@@ -10,6 +10,7 @@ const CartPage = () => {
     (acc, item) => acc + item.product.price * item.quantity,
     0
   );
+  console.log(cart)
 
   const handlePayment = () => {
     setTimeout(() => {
@@ -45,11 +46,14 @@ const CartPage = () => {
               className="flex flex-col sm:flex-row items-center justify-between bg-white p-4 rounded-lg border border-gray-200 shadow-sm"
             >
               <div className="flex items-center gap-4 w-full sm:w-auto">
-                <img
-                  src={item.product.thumbnail}
-                  alt={item.product.title}
-                  className="w-24 h-24 object-cover rounded-md"
-                />
+                <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center overflow-hidden rounded-md bg-gray-100">
+  <img
+    src={item.product.image}
+    alt={item.product.title}
+    style={{width:"15rem", height:"15rem", objectFit:"cover"}}
+/>
+</div>
+
                 <div className="flex-1">
                   <h3 className="font-bold text-lg">{item.product.title}</h3>
                   <p className="text-sm text-gray-500 line-clamp-2">

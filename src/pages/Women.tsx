@@ -1,9 +1,10 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
-import productsData from "../assets/mockData.json";
+import productsData from "../assets/mockdata.json";
+import { Link } from "react-router-dom";
 
 const Women = () => {
-  const products = productsData.filter((product) => product.gender === "W");
+  const products = productsData.filter((product) => product.gender !== "M");
   const { addToCart, decreaseQuantity, cart } = useCart();
 
   const getItemCount = (productId) => {
@@ -27,11 +28,14 @@ const Women = () => {
                 key={product.id}
                 className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-300 flex flex-col justify-between"
               >
+                                  <Link to={`/product/${product.id}`}>
+                
                 <img
                   src={product.image}
                   alt={product.name}
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
+                </Link>
                 <h3 className="font-bold text-lg mb-1 line-clamp-1">
                   {product.name}
                 </h3>

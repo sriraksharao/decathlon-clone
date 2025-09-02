@@ -21,7 +21,7 @@ const HeaderNav = () => {
         className="relative"
       >
         <a
-          href="/Sports"
+          href="/#sports"
           className="text-foreground hover:text-primary transition-colors font-medium cursor-pointer"
         >
           Sports
