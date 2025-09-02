@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "@/context/CartContext";
 import HeaderNav from "@/pages/Sports";
-import mockData from "@/assets/mockdata.json"; // import your mockdata
+import mockData from "@/assets/mockData.json"; // import your mockdata
 
 interface Product {
   id: string;
