@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
-import mockData from "@/assets/mockdata.json";
+import mockData from "@/assets/mockData.json";
 import { Link } from "react-router-dom";
 
 const Camping = () => {

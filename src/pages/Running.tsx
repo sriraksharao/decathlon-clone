@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
-import mockData from "../assets/mockdata.json"; // import your JSON file
+import mockData from "../assets/mockData.json"; // import your JSON file
 import { Link } from "react-router-dom";
 
 const Running = () => {

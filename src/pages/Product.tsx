@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import mockData from "@/assets/mockdata.json";
+import mockData from "@/assets/mockData.json";
 import { Star } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 

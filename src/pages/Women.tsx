@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
-import productsData from "../assets/mockdata.json";
+import productsData from "../assets/mockData.json";
 import { Link } from "react-router-dom";
 
 const Women = () => {
