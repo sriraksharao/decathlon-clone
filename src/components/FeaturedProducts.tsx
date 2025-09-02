@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import { useCart } from "../context/CartContext";
-import productsData from "@/assets/mockdata.json";
+import productsData from "@/assets/mockData.json";
 import { Link } from "react-router-dom";
 // IDs of products to display as Featured
 const FEATURED_IDS = [3,4,13, 6, 7, 8];
